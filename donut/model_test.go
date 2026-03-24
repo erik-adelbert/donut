@@ -50,8 +50,10 @@ func TestClamp(t *testing.T) {
 }
 
 func TestBlendColors(t *testing.T) {
-	cid := 1
-	lum := 2
+	var (
+		cid byte = 1
+		lum byte = 2
+	)
 
 	out := blend(cid, lum, 0.5)
 

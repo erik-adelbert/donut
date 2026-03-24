@@ -23,17 +23,17 @@ var LUT = [12]color.RGBA{
 	{0x00, 0x00, 0x00, 0xFF}, // Black
 }
 
-func pickColor() int {
+func pickColor() byte {
 	// Pick a random color from the LUT
-	return rand.IntN(len(LUT))
+	return byte(rand.IntN(len(LUT)))
 }
 
-func nextColor(current int) int {
+func nextColor(current byte) byte {
 	// Cycle to the next color in the LUT
-	return (current + 1) % len(LUT)
+	return byte((int(current) + 1) % len(LUT))
 }
 
-func blend(base, lumi int, α float64) color.RGBA {
+func blend(base, lumi byte, α float64) color.RGBA {
 	b := LUT[base]
 	l := ramp[lumi]
 

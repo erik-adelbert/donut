@@ -13,7 +13,7 @@ type Model struct {
 	h, w int
 	a, b int
 
-	color int
+	color byte
 	emoji bool
 	mute  bool
 }
@@ -68,10 +68,10 @@ func (m *Model) step() {
 				continue
 			}
 
-			lumi := clamp(
+			lumi := byte(clamp(
 				int(9*((sj*sa-si*cj*ca)*cb-si*cj*sa-sj*ca-ci*cj*sb)),
 				0, 11,
-			)
+			))
 
 			ii := x + DonutW*y
 
