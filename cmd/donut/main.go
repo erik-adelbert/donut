@@ -1,3 +1,5 @@
+// Package main is the entry point for the donut program using the Bubble Tea
+// TUI framework.
 package main
 
 import (
@@ -12,7 +14,9 @@ import (
 )
 
 func main() {
-	noWarning := flag.Bool("no-warning", false, "Skip the epilepsy warning screen")
+	noWarning := flag.Bool(
+		"no-warning", false, "Skip the epilepsy warning screen",
+	)
 	flag.Parse()
 
 	if !*noWarning {
@@ -27,7 +31,8 @@ func main() {
 		fatal("Could not get terminal size:", err)
 	}
 
-	h = max(1, h) // ensure the dimensions are strictly positive
+	// ensure the dimensions are strictly positive
+	h = max(1, h)
 	w = max(1, w)
 	p := tea.NewProgram(donut.NewModel(h, w))
 
