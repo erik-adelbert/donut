@@ -71,14 +71,14 @@ make bench
 ### Run without Makefile
 
 ```sh
-go run ./cmd/donut
+go run ./cmd/donut/main.go
 ```
 
 Build a binary:
 
 ```sh
 mkdir -p bin
-go build -o bin/donut ./cmd/donut
+go build -o bin/donut ./cmd/donut/main.go
 ./bin/donut
 ```
 
